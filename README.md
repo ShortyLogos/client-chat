@@ -3,3 +3,13 @@
 -----------------------------------------
 
 Programmation d'une interface de chat animée.
+
+
+
+
+
+# CRÉDITS
+
+## Images
++ Earthbound sprites : Nintendo
++ Ciel nocturne : Savvy Cow, https://savvycow.itch.io/loudypixelsky

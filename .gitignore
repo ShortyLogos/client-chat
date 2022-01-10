@@ -1,6 +1,3 @@
 node_modules/
 client/dist/*
 !client/dist/.gitkeep
-sounds/
-music/
-fonts/
