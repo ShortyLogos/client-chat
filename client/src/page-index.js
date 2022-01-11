@@ -4,12 +4,48 @@ import UFO from './sprites/UFO.js';
 
 export let mouseX;
 export let mouseY;
-let spriteList = [];
+export let spriteList = [];
 let body;
 let bodyBgImagePosX = 100;
 
 window.addEventListener("load", () => {
+    let root = document.querySelector(":root");
+    let rootStyle = getComputedStyle(root);
+
+    let mainColor = rootStyle.getPropertyValue('--color-main');
+    let secondaryColor = rootStyle.getPropertyValue('--color-secondary');
+    let paleColor = rootStyle.getPropertyValue('--color-pale');
+    let darkColor = rootStyle.getPropertyValue('--color-dark');
+    let accentColor = rootStyle.getPropertyValue('--color-accent');
+
+    let title = document.querySelector(".client-welcome-title");
+
+    const flashingTitle = () => {
+        setTimeout(() => {
+            title.style.textShadow = "0px 4px " + accentColor;
+            title.style.letterSpacing = "2px";
+        }, 90)
+        setTimeout(() => {
+            title.style.letterSpacing = "3px";
+        }, 180)
+        setTimeout(() => {
+            title.style.textShadow = "0px 2px " + accentColor;
+            title.style.letterSpacing = "2px";
+            flashingTitle();
+        }, 270)
+    }
+
+    flashingTitle();
+
     body = document.querySelector("body");
+
+    // background-image: url(../img/background/background-night-sky.png);
+    // background-repeat: repeat-x;
+    // background-color: var(--color-dark);
+
+    body.style.backgroundImage = "url(./img/background/background-night-sky.png)";
+    body.style.backgroundRepeat = "repeat-x";
+
     body.onmousemove = event => {
         mouseX = event.x;
         mouseY = event.y;
@@ -17,6 +53,7 @@ window.addEventListener("load", () => {
    
     spriteList.push(new UFO());
 
+  
     tick();
 
     document.querySelector("form").onsubmit = function () {

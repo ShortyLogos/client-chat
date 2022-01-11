@@ -14,6 +14,7 @@
     --color-secondary: #6b33a9;
     --color-pale: #b08ad8;
     --color-dark: #1e1753;
+    --color-accent: #cf9c5a;
     font-family: GasFont, monospace;
     font-size: 24px;
     text-transform: uppercase;
@@ -21,10 +22,7 @@
 }
 
 body {    
-    background-image: url(../img/background/background-night-sky.png);
-    background-repeat: repeat-x;
     background-color: var(--color-dark);
-    overflow: hidden;
     overflow: hidden;
 }
 
@@ -38,10 +36,6 @@ a {
 }
 
 .wrapper-index {
-    /* background-image: url(../img/background/background-night-sky.png);
-    background-repeat: repeat-x;
-    background-color: var(--color-dark); */
-
     justify-content: center;
     width: 100vw;
     height: 100vh;
@@ -52,8 +46,9 @@ a {
     width: fit-content;
     margin: 0 auto 36px auto;
     font-size: 32px;
+    letter-spacing: 2px;
     color: var(--color-secondary);
-    text-shadow: 0px 3px var(--color-pale);
+    text-shadow: 0px 3px var(--color-accent);
 }
 
 .box-content {
@@ -128,6 +123,11 @@ a {
     cursor: pointer;
 }
 
+.sign-in-input-group button:active {
+    border-bottom: none;
+}
+
+
 footer {
     position: relative;
     display: flex;
@@ -140,9 +140,9 @@ footer {
 
 .footer-item {
     z-index: 2;
-    position: relative;
+    height: 150%;
+    align-self: flex-end;
 }
-
 
 .footer-item:hover {
     cursor: pointer;
@@ -157,6 +157,7 @@ footer {
 }
 
 .UFO {
+    z-index: 1;
     position: absolute;
     width: 100px;
     height: 100px;
@@ -167,28 +168,41 @@ footer {
     position: relative;
     width: fit-content;
     height: fit-content;
-    top: -30px;
+    top: -20px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
     
-    font-size: 24px;
+    font-size: 16px;
     letter-spacing: 3px;
-    color: var(--color-main);
+    color: var(--color-accent);
     text-shadow: 0px 3px var(--color-secondary);
     border-radius: 3px;
-    /* background-color: #6b33a9; */
-
 }
 
-/* ANIMATIONS */
+.UFO-moving-particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    transform: translateX(50%);
+    background-color: #fff;
+    animation: moving-particle 1.75s 1 ease-in-out forwards;
+}
+
+/************* ANIMATIONS **************/
 @keyframes uplift {
     0% {transform: translateY(0); text-shadow: 0px 0px transparent;}
-    100% {transform: translateY(-10px); text-shadow: 0 3px var(--color-main);}
+    100% {transform: translateY(-10px); text-shadow: 0 3px var(--color-accent);}
 }
 
 @keyframes twinkle {
     0% {opacity: 0;}
-    50% {opacity: 1;}
+    30% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+@keyframes moving-particle {
+    0% {opacity: 1;}
+    40% {opacity: 0.08;}
     100% {opacity: 0;}
 }

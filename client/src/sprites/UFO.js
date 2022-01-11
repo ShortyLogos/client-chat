@@ -1,4 +1,5 @@
-import {mouseX, mouseY} from '../page-index.js'
+import {mouseX, mouseY, spirteList, spriteList} from '../page-index.js'
+import MovingParticle from './MovingParticle.js';
 
 export default class UFO {
 
@@ -35,6 +36,9 @@ export default class UFO {
 
     tick() {
 
+        spriteList.push(new MovingParticle(this.node, this.x, this.y));
+        
+
         if (this.x < mouseX) {
 			if (this.speedX < this.maxSpeed) {
 				this.speedX += this.velocity;
@@ -62,6 +66,8 @@ export default class UFO {
 
 		this.node.style.left = this.x + "px";
 		this.node.style.top = this.y + "px";
+
+        
 
         this.username = document.querySelector("#username").value;
         this.textAppended.innerText = this.username;
