@@ -18,7 +18,6 @@ export default class Star {
         document.body.append(this.node);
     }
 
-    
     tick() {
         let alive = true;
         this.counter--;

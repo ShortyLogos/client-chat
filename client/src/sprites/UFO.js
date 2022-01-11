@@ -1,14 +1,24 @@
+import {mouseX, mouseY} from '../page-index.js'
+
 export default class UFO {
 
     constructor() {
-        this.speed = 1;
-        this.velocity = 0.2;
+        this.speedX = 0;
+        this.speedY = 0;
+        this.velocity = 0.025;
+        this.maxSpeed = 4;
 
         this.node = document.createElement("div");
         this.node.classList.add("UFO");
 
+        this.username = document.querySelector("#username").value;
+
+        this.textAppended = document.createElement("div");
+        this.textAppended.classList.add("UFO-text");
+        this.textAppended.innerText = this.username;
+
         this.x = Math.random() * window.innerWidth;
-        if (this.x <= 0 || this.x >= window.innerWidth - 100)
+        if (this.x <= 0 || this.x >= window.innerWidth - 110)
             this.x = 50;
 
         this.y = (Math.random() * window.innerHeight);
@@ -19,20 +29,44 @@ export default class UFO {
         this.node.style.top = this.y + "px";
         
         document.body.append(this.node);
-        console.log(window.innerWidth);
-        console.log(window.innerHeight);
-        console.log("x : ", this.x);
-        console.log("y : ", this.y);
+        this.node.append(this.textAppended);
+
     }
 
     tick() {
-        this.speed += this.velocity;
-        this.x += this.speed;
-        this.y += this.speed;
-        
-        this.node.style.left = this.x + "px";
-        this.node.style.top = this.y + "px";
-        console.log("x : ", this.x);
-        console.log("y : ", this.y);
+
+        if (this.x < mouseX) {
+			if (this.speedX < this.maxSpeed) {
+				this.speedX += this.velocity;
+			}
+		}
+		else if (this.x > mouseX) {
+			if (this.speedX > -this.maxSpeed) {
+				this.speedX -= this.velocity;
+			}
+		}
+
+		if (this.y < mouseY) {
+			if (this.speedY < this.maxSpeed) {
+				this.speedY += this.velocity;
+			}
+		}
+		else if (this.y > mouseY) {
+			if (this.speedY > -this.maxSpeed) {
+				this.speedY -= this.velocity;
+			}
+		}
+
+		this.x += this.speedX;
+		this.y += this.speedY;
+
+		this.node.style.left = this.x + "px";
+		this.node.style.top = this.y + "px";
+
+        this.username = document.querySelector("#username").value;
+        this.textAppended.innerText = this.username;
+
+        let alive = true
+        return alive;
     }
 }

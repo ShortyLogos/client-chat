@@ -1,14 +1,20 @@
 import {signin} from './chat-api';
 import Star from './sprites/Star.js';
 import UFO from './sprites/UFO.js';
-let spriteList = [];
 
-let backgroundImage;
-let posX = 100;
+export let mouseX;
+export let mouseY;
+let spriteList = [];
+let body;
+let bodyBgImagePosX = 100;
 
 window.addEventListener("load", () => {
-    backgroundImage = document.querySelector(".wrapper-index");
-
+    body = document.querySelector("body");
+    body.onmousemove = event => {
+        mouseX = event.x;
+        mouseY = event.y;
+    }
+   
     spriteList.push(new UFO());
 
     tick();
@@ -19,8 +25,8 @@ window.addEventListener("load", () => {
 });
 
 const tick = () => {
-    posX --;
-    backgroundImage.style.backgroundPosition = posX + "px " + "100%";
+    bodyBgImagePosX--;
+    body.style.backgroundPosition = bodyBgImagePosX + "px " + "100%";
 
     if (Math.random() < 0.2) {
         spriteList.push(new Star());
