@@ -12,6 +12,7 @@
 :root {
     --color-main: #9674bc;
     --color-secondary: #6b33a9;
+    --color-pale: #b08ad8;
     --color-dark: #1e1753;
     font-family: GasFont, monospace;
     font-size: 20px;
@@ -40,17 +41,18 @@ a {
 }
 
 .client-welcome-title {
+    z-index: 1;
     width: fit-content;
-    margin: 0 auto 24px auto;
-    font-size: 24px;
-    color: #9674bc;
-    text-transform: uppercase;
+    margin: 0 auto 36px auto;
+    font-size: 32px;
+    color: var(--color-secondary);
     text-shadow:
-        0px 1px #fff, 
-        1px 3px #6b33a9;
+        0px 3px var(--color-pale);
+        /* 0px 1px #fff; */
 }
 
 .box-content {
+    z-index: 1;
     margin: 0 auto 25vh;
     padding: 16px;
     text-align: center;
@@ -80,11 +82,13 @@ a {
 
 .sign-in-input-group input {
     height: 32px;
+    padding: 2px;
     border: 3px solid var(--color-main);
     border-radius: 4px;
+    font-weight: bold;
     text-align: center;
-    color: var(--color-dark);
-    padding: 2px;
+    background-color: rgba(255, 255, 255, 0.11);
+    color: #fff;
 }
 
 .sign-in-input-group input:focus {
@@ -92,6 +96,10 @@ a {
     border: 3px solid #fff;
     background-color: var(--color-main);
     color: #fff;
+}
+
+.sign-in-input-group input:focus::placeholder {
+    color: var(--color-dark);
 }
 
 .sign-in-input-group button {
@@ -135,7 +143,20 @@ footer div:hover {
     animation: uplift 0.2s 1 ease forwards;
 }
 
+.star {
+    position: absolute;
+    transform: rotate(45deg);
+    background-color: #fff;
+    animation: twinkle 0.8s 1 ease-in-out forwards;
+}
+
 @keyframes uplift {
     0% {transform: translateY(0); text-shadow: 0px 0px transparent;}
     100% {transform: translateY(-10px); text-shadow: 0 3px var(--color-main);}
+}
+
+@keyframes twinkle {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
 }
