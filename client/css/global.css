@@ -41,7 +41,7 @@ a {
 }
 
 .client-welcome-title {
-    z-index: 1;
+    z-index: 2;
     width: fit-content;
     margin: 0 auto 36px auto;
     font-size: 32px;
@@ -52,7 +52,7 @@ a {
 }
 
 .box-content {
-    z-index: 1;
+    z-index: 2;
     margin: 0 auto 25vh;
     padding: 16px;
     text-align: center;
@@ -134,6 +134,7 @@ footer {
 }
 
 footer div {
+    z-index: 2;
     position: relative;
 }
 
@@ -150,6 +151,16 @@ footer div:hover {
     animation: twinkle 0.8s 1 ease-in-out forwards;
 }
 
+.UFO {
+    position: absolute;
+    width: 102px;
+    height: 113px;
+    background-image: url('../img/sprites/skyrunner.gif');
+    background-position: center top;
+    background-size: 100% auto;
+}
+
+/* ANIMATIONS */
 @keyframes uplift {
     0% {transform: translateY(0); text-shadow: 0px 0px transparent;}
     100% {transform: translateY(-10px); text-shadow: 0 3px var(--color-main);}
