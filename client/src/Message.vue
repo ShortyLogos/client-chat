@@ -1,5 +1,10 @@
 <template>
-    <div class="message white-border">{{ message.message }}</div>
+    <div class="message white-border">
+        {{ message.message }}
+        <div class="username">
+            {{ message.fromUser }}
+        </div>
+    </div>
 </template>
 
 <script>

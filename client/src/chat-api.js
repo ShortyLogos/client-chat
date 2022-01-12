@@ -144,6 +144,7 @@ export const sendMessage = (event, fieldNode) => {
         fieldNode.value = "";
 
         val = val.replace(/\n+$/, "");
+        val = val.replace("/w " + localStorage["username"], "");
 
         let formData = new FormData();
         formData.append('key', localStorage["chat_key"]);

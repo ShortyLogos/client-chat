@@ -13,6 +13,12 @@ window.addEventListener("load", () => {
     registerCallbacks(newMessage, memberListUpdate);
     chatMessageLoop();
 
+    let body = document.querySelector("body");
+
+    body.style.backgroundImage = "url(./img/background/background-tile-room.png)";
+    body.style.backgroundPosition = "bottom center";
+    body.style.backgroundRepeat = "repeat-x";
+
     new Vue({
         el: '#vue-container',
         components: { Chat },
@@ -36,7 +42,7 @@ const newMessage = (fromUser, message, isPrivate) => {
 // À chaque 2-3 secondes, cette fonction est appelée. Il faudra donc mettre à jour la liste des membres
 // connectés dans votre interface.
 const memberListUpdate = members => {
-    // console.log(members);
+    console.log(members);
 }
 
 const tick = () => {
