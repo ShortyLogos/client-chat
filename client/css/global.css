@@ -35,8 +35,9 @@ a {
     flex-direction: column;
 }
 
-.wrapper-index {
+.wrapper {
     justify-content: center;
+    align-items: center;
     width: 100vw;
     height: 100vh;
 }
@@ -44,16 +45,49 @@ a {
 .client-welcome-title {
     z-index: 2;
     width: fit-content;
-    margin: 0 auto 36px auto;
+    margin-bottom: 20px;
     font-size: 32px;
     letter-spacing: 2px;
     color: var(--color-secondary);
     text-shadow: 0px 3px var(--color-accent);
 }
 
+.client-welcome-subtitle {
+    width: 240px;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: 0px -1px var(--color-accent);
+    text-transform: none;
+}
+
+.client-welcome-subtitle span {
+    line-height: 20px;
+    color: var(--color-accent);
+}
+
+.client-register-subtitle {
+    width: 45vw;
+    max-width: 360px;
+    margin-bottom: 24px;
+    white-space: pre-line;
+    text-align: center;
+    font-size: 28px;
+    letter-spacing: 1px;
+    line-height: 42px;
+    color: var(--color-secondary);
+    text-shadow: 0px 2px var(--color-accent);
+}
+
+.client-register-subtitle span {
+    color: var(--color-accent);
+    text-shadow: 0px 2px var(--color-secondary);
+}
+
 .box-content {
     z-index: 2;
-    margin: 0 auto 25vh;
+    margin-bottom: 20px;
     padding: 16px;
     text-align: center;
     gap: 15px;
@@ -74,13 +108,13 @@ a {
     color: #fff;
 }
 
-.sign-in-input-group {
+.pyjama-party-welcome {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.sign-in-input-group input {
+.pyjama-party-welcome input {
     height: 32px;
     padding: 2px;
     border: 3px solid var(--color-main);
@@ -91,18 +125,18 @@ a {
     color: #fff;
 }
 
-.sign-in-input-group input:focus {
+.pyjama-party-welcome input:focus {
     outline: none;
     border: 3px solid #fff;
     background-color: var(--color-main);
     color: #fff;
 }
 
-.sign-in-input-group input:focus::placeholder {
+.pyjama-party-welcome input:focus::placeholder {
     color: var(--color-dark);
 }
 
-.sign-in-input-group button {
+.pyjama-party-welcome button {
     height: 48px;
     font: inherit;
     border: none;
@@ -115,7 +149,7 @@ a {
     cursor: pointer;
 }
 
-.sign-in-input-group button:hover {
+.pyjama-party-welcome button:hover {
     border-bottom: 3px solid var(--color-main);
     background-color: var(--color-secondary);
     color: #fff;
@@ -123,7 +157,7 @@ a {
     cursor: pointer;
 }
 
-.sign-in-input-group button:active {
+.pyjama-party-welcome button:active {
     border-bottom: none;
 }
 
@@ -132,8 +166,8 @@ footer {
     position: relative;
     display: flex;
     flex-direction: row;
-    margin: 0 auto;
     width: fit-content;
+    margin-top: 20vh;
     gap: 48px;
     color: white;
 }
