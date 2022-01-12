@@ -9,6 +9,10 @@ let body;
 let bodyBgImagePosX = 100;
 
 window.addEventListener("load", () => {
+    document.querySelector("form").onsubmit = function () {
+        return signin(this);
+    }
+    
     body = document.querySelector("body");
 
     // background-image: url(../img/background/background-night-sky.png);
@@ -53,10 +57,6 @@ window.addEventListener("load", () => {
 
     bouncingTitle();
     tick();
-
-    document.querySelector("form").onsubmit = function () {
-        return signin(this);
-    }
 });
 
 const tick = () => {
