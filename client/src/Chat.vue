@@ -1,11 +1,11 @@
 <template>
-    <div id="chat-box" class="box-content flex-column">
-        <Message
-            v-for="message in messages"
-            v-bind:message="message"
-            v-bind:key="message.id"
-        />
-    </div>
+        <div id="chat-box" class="box-content flex-column">
+            <Message
+                v-for="message in messages"
+                v-bind:message="message"
+                v-bind:key="message.msgId"
+            />
+        </div>
 </template>
 
 <script>
@@ -13,15 +13,17 @@
 
     export default {
         name : "Chat",
-        props : ["messages"],
         components : {
             Message
         },
-        methods : {}
+        props : ["messages"],
+        updated() {
+            this.$nextTick(() => this.scrollDown());
+        },
+        methods : {
+            scrollDown: function () {
+                this.$el.scrollTop = this.$el.lastElementChild.offsetTop;
+            }
+        }
     }
-
-    // window.addEventListener("load", () => {
-    //     let chatBox = document.querySelector("#chat-box");
-    //     chatBox.scrollIntoView(false);
-    // })
 </script>
