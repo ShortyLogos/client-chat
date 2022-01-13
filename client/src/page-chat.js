@@ -1,7 +1,6 @@
 import { registerCallbacks, sendMessage, signout, chatMessageLoop } from './chat-api';
 import Vue from 'vue';
 import Chat from './Chat.vue';
-import MembersOnline from './MembersOnline.vue'
 
 let msgList = [];
 let msgId = 0;
@@ -65,7 +64,8 @@ const memberListUpdate = members => {
 
     membersOnline.forEach(member => {
         let onlineMember = document.createElement("div");
-        onlineMember.classList.add("online-member")
+        onlineMember.classList.add("online-member");
+        onlineMember.classList.add("lift-up");
         onlineMember.innerText = member;
 
         membersList.append(onlineMember);

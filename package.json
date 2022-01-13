@@ -4,6 +4,7 @@
   "description": "Web chat",
   "main": "server.js",
   "scripts": {
+    "sass": "sass --watch client/scss:client/css",
     "webpack": "webpack --watch"
   },
   "author": "",
