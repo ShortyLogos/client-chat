@@ -1,7 +1,7 @@
 import {registerCallbacks, sendMessage, signout, chatMessageLoop} from './chat-api';
 import Vue from 'vue';
 import Chat from './Chat.vue';
-
+import MembersOnline from './MembersOnline.vue'
 
 let msgList = [];
 let msgId = 0;
@@ -22,13 +22,21 @@ window.addEventListener("load", () => {
     body.style.backgroundPosition = "bottom center";
     body.style.backgroundRepeat = "repeat-x";
 
+    // new Vue({
+    //     el: '#members-container',
+    //     components: { MembersOnline },
+    //     template: '<MembersOnline v-bind:members="membersList"/>',
+    //     data : {
+    //         membersList : mbList
+    //     }
+    // })
+
     new Vue({
-        el: '#vue-container',
+        el: '#chat-container',
         components: { Chat },
         template: '<Chat v-bind:messages="messageList" />',
         data : {
-            messageList : msgList,
-            membersList : mbList
+            messageList : msgList
         }
     })
 
@@ -43,10 +51,12 @@ const newMessage = (fromUser, message, isPrivate) => {
 
 // À chaque 2-3 secondes, cette fonction est appelée. Il faudra donc mettre à jour la liste des membres
 // connectés dans votre interface.
-const memberListUpdate = members => {
+const memberListUpdate = members => {    
     console.log(members);
 }
 
 const tick = () => {
+    
+
     window.requestAnimationFrame(tick);
 }
