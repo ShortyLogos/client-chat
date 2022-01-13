@@ -11,17 +11,24 @@
     <body>
         <div class="wrapper flex-column">
 
-            <div class="center-container flex-row">
+            <div class="chat-app-center-container flex-row">
                 <div id="members-online" class="members-online flex-column">
                     <div class="online-title">Online</div>
                 </div>
                 <div id="chat-container"></div>
+                <div class="interactive-panel flex-column">
+                    <button id="sign-out-btn" class="sign-out-btn">Sign out</button>
+                </div>
             </div>
     
-            <button id="sign-out-btn" class="btn">Sign out</button>
-            <div>
-                <textarea class="chat-input" cols="30" rows="10"></textarea>
+            <div class="text-input-area flex-column">
+                <button id="sign-out-btn-small" class="sign-out-btn">Sign out</button>
+                <div>
+                    <textarea class="text-input" cols="30" rows="10"></textarea>
+                </div>
             </div>
+
+
 
         </div>
     </body>

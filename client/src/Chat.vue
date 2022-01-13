@@ -1,5 +1,5 @@
 <template>
-        <div id="chat-box" class="box-content flex-column">
+        <div id="chat-container">
             <Message
                 v-for="message in messages"
                 v-bind:message="message"

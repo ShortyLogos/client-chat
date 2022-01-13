@@ -12,6 +12,7 @@ window.addEventListener("load", () => {
         sendMessage(evt, this)
     };
     document.querySelector("#sign-out-btn").onclick = signout;
+    document.querySelector("#sign-out-btn-small").onclick = signout;
     registerCallbacks(newMessage, memberListUpdate);
     chatMessageLoop();
 
@@ -20,15 +21,6 @@ window.addEventListener("load", () => {
     body.style.backgroundImage = "url(./img/background/background-tile-room.png)";
     body.style.backgroundPosition = "bottom center";
     body.style.backgroundRepeat = "repeat-x";
-
-    // new Vue({
-    //     el: '#members-container',
-    //     components: { MembersOnline },
-    //     template: '<MembersOnline v-bind:members="membersList"/>',
-    //     data : {
-    //         membersList : mbList
-    //     }
-    // })
 
     membersList = document.querySelector("#members-online");
 
@@ -55,8 +47,6 @@ const newMessage = (fromUser, message, isPrivate) => {
 const memberListUpdate = members => {
     membersOnline = members;
 
-    // membersOnline.splice(0, membersOnline.length);
-
     let refreshMembers = document.querySelectorAll(".online-member")
     refreshMembers.forEach(node => {
         node.remove();
@@ -75,6 +65,7 @@ const memberListUpdate = members => {
 }
 
 const tick = () => {
+    let panel = document.querySelector(".interactive-panel");
 
 
     window.requestAnimationFrame(tick);
