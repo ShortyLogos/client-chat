@@ -1,12 +1,12 @@
-import {registerCallbacks, sendMessage, signout, chatMessageLoop} from './chat-api';
+import { registerCallbacks, sendMessage, signout, chatMessageLoop } from './chat-api';
 import Vue from 'vue';
 import Chat from './Chat.vue';
 import MembersOnline from './MembersOnline.vue'
 
 let msgList = [];
 let msgId = 0;
-let mbList = [];
-let mbId = 0;
+let membersOnline = [];
+let membersList;
 
 window.addEventListener("load", () => {
     document.querySelector("textarea").onkeyup = function (evt) {
@@ -31,12 +31,14 @@ window.addEventListener("load", () => {
     //     }
     // })
 
+    membersList = document.querySelector("#members-online");
+
     new Vue({
         el: '#chat-container',
         components: { Chat },
         template: '<Chat v-bind:messages="messageList" />',
-        data : {
-            messageList : msgList
+        data: {
+            messageList: msgList
         }
     })
 
@@ -45,18 +47,35 @@ window.addEventListener("load", () => {
 
 // Lorsqu'un nouveau message doit être affiché à l'écran, cette fonction est appelée
 const newMessage = (fromUser, message, isPrivate) => {
-    msgList.push({msgId : ++msgId, fromUser : fromUser, message : message, isPrivate : isPrivate});
+    msgList.push({ msgId: ++msgId, fromUser: fromUser, message: message, isPrivate: isPrivate });
     console.log(fromUser, message, isPrivate);
 }
 
 // À chaque 2-3 secondes, cette fonction est appelée. Il faudra donc mettre à jour la liste des membres
 // connectés dans votre interface.
-const memberListUpdate = members => {    
+const memberListUpdate = members => {
+    membersOnline = members;
+
+    // membersOnline.splice(0, membersOnline.length);
+
+    let refreshMembers = document.querySelectorAll(".online-member")
+    refreshMembers.forEach(node => {
+        node.remove();
+    })
+
+    membersOnline.forEach(member => {
+        let onlineMember = document.createElement("div");
+        onlineMember.classList.add("online-member")
+        onlineMember.innerText = member;
+
+        membersList.append(onlineMember);
+    })
+
     console.log(members);
 }
 
 const tick = () => {
-    
+
 
     window.requestAnimationFrame(tick);
 }
