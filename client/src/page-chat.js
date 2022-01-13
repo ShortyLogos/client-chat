@@ -57,6 +57,12 @@ const memberListUpdate = members => {
         onlineMember.classList.add("online-member");
         onlineMember.classList.add("lift-up");
         onlineMember.innerText = member;
+        onlineMember.onclick = () => {
+            let textArea = document.querySelector(".text-input");
+            textArea.focus();
+            textArea.value = "/w " + member + " ";
+            console.log("ici");
+        }
 
         membersList.append(onlineMember);
     })
