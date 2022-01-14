@@ -149,7 +149,7 @@ body {
 
     button:last-child {
         width: 70%;
-        margin: 0 auto 5vh;
+        margin: 0 auto;
         @include small-btn-style;
         filter: none;
     }

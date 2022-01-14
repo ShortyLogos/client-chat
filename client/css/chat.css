@@ -146,7 +146,7 @@ body {
 }
 .interactive-panel button:last-child {
   width: 70%;
-  margin: 0 auto 5vh;
+  margin: 0 auto;
   height: 32px;
   font-size: 20px;
   min-width: 66px;
