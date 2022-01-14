@@ -7,7 +7,7 @@
     "sass": "sass --watch client/scss:client/css",
     "webpack": "webpack --watch"
   },
-  "author": "",
+  "author": "Deric Marchand",
   "license": "ISC",
   "dependencies": {
     "md5": "^2.3.0"

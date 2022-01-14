@@ -1,0 +1,33 @@
+@use '_gb-mixins.scss' as *;
+@import "global.css";
+
+.welcome-box-content {
+    @include box-content;
+}
+
+.client-welcome-title {
+    z-index: 2;
+    width: fit-content;
+    margin-bottom: 20px;
+    font-size: 32px;
+    letter-spacing: 2px;
+    color: var(--color-secondary);
+    text-shadow: 0px 3px var(--color-accent);
+}
+
+.client-welcome-subtitle {
+    @include client-subtitle;
+}
+
+/************* MEDIA QUERIES *************/
+
+@media (max-height: 550px) {
+    .client-welcome-title {
+        margin-top: 10vh;
+        font-size: 24px;
+    }
+
+    .client-welcome-subtitle {
+        margin-bottom: none;
+    }
+}

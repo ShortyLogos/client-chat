@@ -15,10 +15,6 @@ window.addEventListener("load", () => {
     
     body = document.querySelector("body");
 
-    // background-image: url(../img/background/background-night-sky.png);
-    // background-repeat: repeat-x;
-    // background-color: var(--color-dark);
-
     body.style.backgroundImage = "url(./img/background/background-night-sky.png)";
     body.style.backgroundRepeat = "repeat-x";
 

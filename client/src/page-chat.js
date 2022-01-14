@@ -33,6 +33,21 @@ window.addEventListener("load", () => {
         }
     })
 
+    document.querySelectorAll(".btn-toggle-up").forEach( element => {
+        console.log("bouton");
+        element.onclick = () => {
+            if (element.classList.contains("btn-toggle-up")) {
+                element.classList.replace("btn-toggle-up", "btn-toggle-down");
+            }
+            else {
+                element.classList.replace("btn-toggle-down", "btn-toggle-up");
+            }
+        }
+    })
+
+    document.querySelector("#tell-a-joke").onclick = () => {
+        console.log("a joke");
+        }
 
     tick();
 })

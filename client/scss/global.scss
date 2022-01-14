@@ -11,11 +11,6 @@
     src: url(../fonts/gasfont.ttf);
 }
 
-@font-face {
-    font-family: Mystery;
-    src: url(../fonts/mystery-dungeon.ttf);
-}
-
 :root {
     --color-main: #9674bc;
     --color-secondary: #6b33a9;
@@ -54,67 +49,7 @@ a {
     flex-direction: row;
 }
 
-.client-welcome-title {
-    z-index: 2;
-    width: fit-content;
-    margin-bottom: 20px;
-    font-size: 32px;
-    letter-spacing: 2px;
-    color: var(--color-secondary);
-    text-shadow: 0px 3px var(--color-accent);
-}
-
-.client-welcome-subtitle {
-    width: 240px;
-    text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 12px;
-    font-weight: bold;
-    text-shadow: 0px -1px var(--color-accent);
-    text-transform: none;
-
-    span {
-        line-height: 20px;
-        color: var(--color-accent);
-    }
-}
-
-.client-register-subtitle {
-    margin-bottom: 24px;
-    white-space: pre-line;
-    text-align: center;
-    font-size: 28px;
-    letter-spacing: 1px;
-    line-height: 42px;
-    color: var(--color-secondary);
-    text-shadow: 0px 2px var(--color-accent);
-
-    span {
-        color: var(--color-accent);
-        text-shadow: 0px 2px var(--color-secondary);
-    }
-}
-
-.box-content {
-    z-index: 2;
-    margin-bottom: 20px;
-    padding: 16px;
-    text-align: center;
-    gap: 15px;
-    background-color: rgba(0, 0, 0, 0.308);
-    @include white-border;
-
-    a {
-        color: var(--color-main);
-        text-decoration: none;
-    }
-    
-    a:hover {
-        color: #fff;
-    }
-}
-
-.pyjama-party-welcome {
+.sign-in-input-group {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -142,16 +77,30 @@ a {
     }
 }
 
-button {
+.btn, .btn-toggle-up {
     @include btn-style;
+    @include btn-click;
+}
+
+.btn-toggle-down {
+    @include btn-style;
+    border-bottom: none;
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+
+    &:hover {
+        background-color: var(--color-secondary);
+        color: #fff;
+    }
 }
 
 footer {
-    position: relative;
+    position: fixed;
     display: flex;
+    bottom: 0;
     flex-direction: row;
     width: fit-content;
-    margin-top: 20vh;
+    margin-bottom: 5vh;
     gap: 48px;
     color: white;
 }
@@ -206,6 +155,48 @@ footer {
     transform: translateX(50%);
     background-color: rgb(255, 255, 255);
     animation: moving-particle 1.75s 1 ease-in-out forwards;
+}
+
+/************* MEDIA QUERIES *************/
+
+@media (max-height: 550px) {
+    :root {
+        font-size: 20px;
+    }
+
+    .btn, .btn-toggle-up, .btn-toggle-down {
+        height: 32px;
+        font-size: 20px;
+    }
+
+    .sign-in-input-group {
+        gap: 8px;
+        input {
+            height: 32px;
+            padding: 2px;
+            border: 3px solid var(--color-main);
+            border-radius: 4px;
+            font-weight: bold;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.11);
+            color: #fff;
+        }
+    
+        input:focus {
+            outline: none;
+            border: 3px solid #fff;
+            background-color: var(--color-main);
+            color: #fff;
+        }
+    
+        input:focus::placeholder {
+            color: var(--color-dark);
+        }
+    }
+
+    footer {
+        font-size: 16px;
+    }
 }
 
 /************* ANIMATIONS **************/
