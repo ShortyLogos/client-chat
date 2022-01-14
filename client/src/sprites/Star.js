@@ -1,11 +1,11 @@
 export default class Star {
-    
-    constructor() {
+    // 240
+    constructor(maximumHeight) {
         this.node = document.createElement("div");
         this.node.classList.add("star");
 
         this.x = Math.random() * window.innerWidth;
-        this.y = (Math.random() * window.innerHeight) - 240;
+        this.y = (Math.random() * window.innerHeight) - maximumHeight;
         this.node.style.left = this.x + "px";
         this.node.style.top = this.y + "px";
 

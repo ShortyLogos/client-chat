@@ -1,6 +1,7 @@
 import {signin} from './chat-api';
 import Star from './sprites/Star.js';
 import UFO from './sprites/UFO.js';
+import { generateStars } from './utils.js';
 
 export let mouseX;
 export let mouseY;
@@ -59,9 +60,7 @@ const tick = () => {
     bodyBgImagePosX--;
     body.style.backgroundPosition = bodyBgImagePosX + "px " + "100%";
 
-    if (Math.random() < 0.2) {
-        spriteList.push(new Star());
-    }
+    generateStars(spriteList, 0.3, 240);
 
     for (let i = 0; i < spriteList.length; i++) {
         let alive = spriteList[i].tick();
