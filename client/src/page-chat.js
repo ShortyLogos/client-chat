@@ -33,6 +33,7 @@ window.addEventListener("load", () => {
         }
     })
 
+
     tick();
 })
 

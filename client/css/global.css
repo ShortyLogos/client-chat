@@ -8,6 +8,10 @@
   font-family: GasFont;
   src: url(../fonts/gasfont.ttf);
 }
+@font-face {
+  font-family: Mystery;
+  src: url(../fonts/mystery-dungeon.ttf);
+}
 :root {
   --color-main: #9674bc;
   --color-secondary: #6b33a9;

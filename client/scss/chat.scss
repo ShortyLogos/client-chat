@@ -57,20 +57,31 @@ body {
     }
 }
 
+.message-private {
+    align-self: flex-end;
+    background-color: var(--color-secondary);
+}
+
 .username {
     position: absolute;
     top: -10px;
-    padding: 2px 6px;
+    padding: 3px 6px;
     font-family: GasFont;
     font-size: 16px;
     letter-spacing: 2px;
     text-align: center;
     text-transform: uppercase;
     background: var(--color-dark);
-    color: var(--color-main);
+    color: var(--color-pale);
     border: 2px solid #ffffff;
     border-radius: 4px;
 }
+
+.username-private {
+    background: var(--color-pale);
+    color: var(--color-dark);
+}
+
 
 .members-online {
     position: relative;
@@ -91,8 +102,8 @@ body {
     left: 50%;
     transform: translateX(-50%);
     width: fit-content;
-    padding: 4px 6px;
-    font-size: 16px;
+    padding: 4px 7px;
+    font-size: 14px;
     font-weight: bold;
     letter-spacing: 3px;
     text-align: center;
@@ -133,9 +144,15 @@ body {
 
 .interactive-panel {
     min-width: 175px;
-    // flex-direction: column-reverse;
     padding: 14px 14px;
     gap: 8px;
+
+    button:last-child {
+        width: 70%;
+        margin: 0 auto 5vh;
+        @include small-btn-style;
+        filter: none;
+    }
 }
 
 textarea {
@@ -170,11 +187,11 @@ textarea {
 }
 
 /************* MEDIA QUERIES **************/
-@media (max-width: 960px) {
-    .chat-app-center-container {
-        width: 100%;
-    }
-}
+// @media (max-width: 960px) {
+//     .chat-app-center-container {
+//         width: 100%;
+//     }
+// }
 
 @media (max-width: 764px) {
     #chat-container {
