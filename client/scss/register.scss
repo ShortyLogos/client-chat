@@ -3,6 +3,10 @@
 
 .register-box-content {
     @include box-content;
+    
+    a {
+        margin-top: 8px;
+    }
 }
 
 .register-title {
@@ -22,6 +26,15 @@
 
 .register-subtitle {
     @include client-subtitle;
+}
+
+#sleeping-boy {
+    width: 264px;
+    height: 380px;
+    justify-self: flex-end;
+    background-size: cover;
+    background-position: center center;
+    background-color: salmon;
 }
 
 /************* MEDIA QUERIES *************/

@@ -1,9 +1,9 @@
 @mixin box-content {
     z-index: 2;
-    margin-bottom: 20px;
+    // margin-bottom: 4px;
     padding: 16px;
     text-align: center;
-    gap: 15px;
+    gap: 9px;
     background-color: rgba(0, 0, 0, 0.308);
     @include white-border;
 
@@ -90,6 +90,7 @@
     width: 240px;
     margin-bottom: 20vh;
     text-align: center;
+    white-space: pre-line;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 12px;
     font-weight: bold;
