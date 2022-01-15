@@ -7,10 +7,11 @@
     "sass": "sass --watch client/scss:client/css",
     "webpack": "webpack --watch"
   },
-  "author": "Deric Marchand",
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "md5": "^2.3.0"
+    "md5": "^2.3.0",
+    "sass": "^1.48.0"
   },
   "devDependencies": {
     "vue": "^2.6.14",

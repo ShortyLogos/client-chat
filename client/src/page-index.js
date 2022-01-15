@@ -1,7 +1,6 @@
 import {signin} from './chat-api';
-import Star from './sprites/Star.js';
 import UFO from './sprites/UFO.js';
-import { generateStars } from './utils.js';
+import { generateStars, refreshSpriteList } from './utils.js';
 
 export let mouseX;
 export let mouseY;
@@ -60,15 +59,10 @@ const tick = () => {
     bodyBgImagePosX--;
     body.style.backgroundPosition = bodyBgImagePosX + "px " + "100%";
 
-    generateStars(spriteList, 0.3, 240);
+    generateStars(spriteList, 0.25, 240, true, 1);
 
-    for (let i = 0; i < spriteList.length; i++) {
-        let alive = spriteList[i].tick();
-        if (!alive) {
-            spriteList.splice(i, 1);
-            i--;
-        }
-    }
+    refreshSpriteList(spriteList);
+
 
     window.requestAnimationFrame(tick);
 }

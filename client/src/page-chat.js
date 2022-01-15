@@ -1,11 +1,17 @@
 import { registerCallbacks, sendMessage, signout, chatMessageLoop } from './chat-api';
 import Vue from 'vue';
 import Chat from './Chat.vue';
+import { generateStars, refreshSpriteList, ToggleButton } from './utils';
 
 let msgList = [];
 let msgId = 0;
 let membersOnline = [];
 let membersList;
+
+let spriteList = [];
+
+let btnStarryNight;
+let starryNight = false;
 
 window.addEventListener("load", () => {
     document.querySelector("textarea").onkeyup = function (evt) {
@@ -33,21 +39,25 @@ window.addEventListener("load", () => {
         }
     })
 
-    document.querySelectorAll(".btn-toggle-up").forEach( element => {
-        console.log("bouton");
-        element.onclick = () => {
-            if (element.classList.contains("btn-toggle-up")) {
-                element.classList.replace("btn-toggle-up", "btn-toggle-down");
-            }
-            else {
-                element.classList.replace("btn-toggle-down", "btn-toggle-up");
-            }
-        }
-    })
+    //     document.querySelectorAll(".btn-toggle-up").forEach( element => {
+    //     element.onclick = () => {
+    //         if (element.classList.contains("btn-toggle-up")) {
+    //             element.classList.replace("btn-toggle-up", "btn-toggle-down");
+    //         }
+    //         else {
+    //             element.classList.replace("btn-toggle-down", "btn-toggle-up");
+    //         }
+    //     }
+    // })
 
-    document.querySelector("#tell-a-joke").onclick = () => {
-        console.log("a joke");
-        }
+    btnStarryNight = new ToggleButton("#starry-night");
+    console.log(btnStarryNight.toggle);
+    // let btnStarryNight = document.querySelector("#starry-night");
+    // btnStarryNight.onclick = () => {
+    //     starryNight = !starryNight;
+    //     btnStarryNight.toggleBtn();
+    //     console.log(starryNight);
+    // }
 
     tick();
 })
@@ -63,6 +73,8 @@ const newMessage = (fromUser, message, isPrivate) => {
 const memberListUpdate = members => {
     membersOnline = members;
 
+    // membersOnline.splice(0, membersOnline.length);
+
     let refreshMembers = document.querySelectorAll(".online-member")
     refreshMembers.forEach(node => {
         node.remove();
@@ -77,7 +89,6 @@ const memberListUpdate = members => {
             let textArea = document.querySelector(".text-input");
             textArea.focus();
             textArea.value = "/w " + member + " ";
-            console.log("ici");
         }
 
         membersList.append(onlineMember);
@@ -87,7 +98,12 @@ const memberListUpdate = members => {
 }
 
 const tick = () => {
-    let panel = document.querySelector(".interactive-panel");
+    starryNight = btnStarryNight.toggle;
+    if (starryNight) {
+        generateStars(spriteList, 0.4, 500);
+    }
+
+    refreshSpriteList(spriteList);
 
 
     window.requestAnimationFrame(tick);

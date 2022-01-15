@@ -1,6 +1,6 @@
 export default class Star {
     // 240
-    constructor(maximumHeight) {
+    constructor(maximumHeight, parallax = null, parallaxSpeed = null) {
         this.node = document.createElement("div");
         this.node.classList.add("star");
 
@@ -13,6 +13,9 @@ export default class Star {
         this.node.style.width = this.size + "px";
         this.node.style.height = this.size + "px";
 
+        this.parallax = parallax;
+        this.parallaxSpeed = parallaxSpeed;
+
         this.counter = 120;
 
         document.body.append(this.node);
@@ -22,8 +25,10 @@ export default class Star {
         let alive = true;
         this.counter--;
 
-        this.x--;
-        this.node.style.left = this.x + "px";
+        if (this.parallax)  {
+            this.x -= this.parallaxSpeed;
+            this.node.style.left = this.x + "px";
+        }
 
         if (this.counter == 0) {
             this.node.remove();
