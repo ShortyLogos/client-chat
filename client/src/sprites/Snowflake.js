@@ -15,8 +15,8 @@ export default class Snowflake {
         this.node.style.width = this.size + "px";
         this.node.style.height = this.size + "px";
 
-        let opacity = 1 - Math.random();
-        this.node.style.opacity = opacity;
+        this.opacity = 1 - Math.random();
+        this.node.style.opacity = this.opacity;
 
         this.node.style.left = this.x + "px";
 
@@ -38,10 +38,26 @@ export default class Snowflake {
             alive = false;
             this.node.remove();
         }
+        else if (this.opacity <= 0) {
+            alive = false;
+            this.node.remove();
+        }
 
         this.node.style.left = this.x + "px";
         this.node.style.top = this.y + "px";
         
         return alive;
+    }
+
+    fadeOut() {
+        this.opacity -= 0.1;
+        this.node.style.opacity = this.opacity;
+
+        console.log(this.debugCounter);
+        if (this.opacity > 0) {
+            setTimeout(() => {
+                this.fadeOut();
+            }, 30)
+        }
     }
 }

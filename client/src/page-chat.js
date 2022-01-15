@@ -2,6 +2,7 @@ import { registerCallbacks, sendMessage, signout, chatMessageLoop } from './chat
 import Vue from 'vue';
 import Chat from './Chat.vue';
 import { generateRain, generateSnow, generateStars, refreshSpriteList, ToggleButton } from './utils';
+import Snowflake from './sprites/Snowflake';
 
 let msgList = [];
 let msgId = 0;
@@ -93,6 +94,11 @@ const tick = () => {
     if (gentleRain) {
         if (soothingSnow) {
             soothingSnow = btnSoothingSnow.toggleNow();
+            for (let i = 0; i < spriteList.length; i++) {
+                if (spriteList[i] instanceof Snowflake) {
+                    spriteList[i].fadeOut();
+                }
+            }
         }
         generateRain(spriteList, 0.8, 24, 0, 180, 0);
         generateRain(spriteList, 0.6, 22, 0, 180, 0);
@@ -107,15 +113,17 @@ const tick = () => {
         if (gentleRain) {
             gentleRain = btnGentleRain.toggleNow();
         }
-        generateSnow(spriteList, 0.15, 2.5, 180, 1.25);
-        generateSnow(spriteList, 0.4, 1.5, 180, 1.5);
-        generateSnow(spriteList, 0.3, 3, 180, 0.5);
-        generateSnow(spriteList, 0.25, 1.2, 180, 1);
+        generateSnow(spriteList, 0.1, 3, 180, 0);
+        generateSnow(spriteList, 0.1, 2.7, 180, 0);
+        generateSnow(spriteList, 0.1, 2.5, 180, 0.3);
+        generateSnow(spriteList, 0.1, 2.3, 180, 0.4);
+        generateSnow(spriteList, 0.1, 2.1, 180, 0.5);
+        generateSnow(spriteList, 0.1, 1.5, 180, 0.6);
+        generateSnow(spriteList, 0.1, 1.2, 180, 0.7);
     }
 
-    refreshSpriteList(spriteList);
-
     console.log(spriteList.length);
+    refreshSpriteList(spriteList);
 
     window.requestAnimationFrame(tick);
 }
