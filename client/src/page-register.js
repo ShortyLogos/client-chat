@@ -29,23 +29,19 @@ window.addEventListener("load", () => {
     root.style.setProperty('--color-dark', '#42121f');
     root.style.setProperty('--color-accent', '#F7800C');
 
+    let sleepingBoy = document.querySelector("#sleeping-boy");
+    let backgroundFrame = 1;
 
-    // body.style.backgroundImage = "url(./img/background/background-sunset-sky.png)";
-    // body.style.backgroundPosition = "center center";
-    // body.style.backgroundRepeat = "no-repeat";
-    // body.style.backgroundSize = "cover";
-
-    // body.style.backgroundImage = "url(./img/background/ness_sleeps1.jpg)";
-    // let backgroundFrame = 1;
-    // const boySleeping = () => {
-    //     setTimeout(() => {
-    //         backgroundFrame = backgroundFrame == 1 ? 2 : 1;
-    //         console.log(backgroundFrame);
-    //         body.style.backgroundImage = "url(./img/background/ness_sleeps" + backgroundFrame + ".jpg)";
-    //         boySleeping();
-    //     }, 500)
-    // }
-    // boySleeping();
+    // Premier changement hors de la fonction pour empêcher une impression d'animation gelée lors du chargement de la page
+    sleepingBoy.style.backgroundImage = "url(./img/background/ness_sleeps" + backgroundFrame + ".jpg)";
+    const boySleeping = () => {
+        setTimeout(() => {
+            backgroundFrame = backgroundFrame == 1 ? 2 : 1;
+            sleepingBoy.style.backgroundImage = "url(./img/background/ness_sleeps" + backgroundFrame + ".jpg)";
+            boySleeping();
+        }, 400)
+    }
+    boySleeping();
 
     tick();
 })

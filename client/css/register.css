@@ -50,12 +50,13 @@
 }
 
 #sleeping-boy {
-  width: 264px;
+  width: 528px;
   height: 380px;
-  justify-self: flex-end;
+  margin-left: 5px;
   background-size: cover;
-  background-position: center center;
-  background-color: salmon;
+  align-self: center;
+  background-image: url("../img/background/ness_sleeps2.jpg");
+  border-radius: 6px;
 }
 
 /************* MEDIA QUERIES *************/
