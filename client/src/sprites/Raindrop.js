@@ -13,7 +13,7 @@ export default class Raindrop {
         }
 
         this.x = Math.random() * (window.innerWidth * 1.25);
-        this.y = this.node.offsetTop;
+        this.y = -20;
 
         this.size = Math.floor(Math.random() * 15 + 3);
         this.node.style.height = this.size + "px";
@@ -21,7 +21,10 @@ export default class Raindrop {
         let opacity = 1 - Math.random();
         this.node.style.opacity = opacity;
 
+        console.log(this.y);
+
         this.node.style.left = this.x + "px";
+        this.node.style.top = this.y + "px";
 
         document.body.append(this.node);
     }

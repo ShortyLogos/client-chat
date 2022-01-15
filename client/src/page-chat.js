@@ -122,7 +122,6 @@ const tick = () => {
         generateSnow(spriteList, 0.1, 1.2, 180, 0.7);
     }
 
-    console.log(spriteList.length);
     refreshSpriteList(spriteList);
 
     window.requestAnimationFrame(tick);

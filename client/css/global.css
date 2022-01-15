@@ -151,7 +151,6 @@ footer {
 .raindrop {
   z-index: -1;
   position: absolute;
-  top: -5px;
   width: 3px;
   background-color: rgba(16, 184, 206, 0.548);
 }
