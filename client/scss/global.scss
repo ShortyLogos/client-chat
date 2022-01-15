@@ -129,10 +129,16 @@ footer {
     z-index: -1;
     position: absolute;
     top: -5px;
-    width: 2px;
-    height: 10px;
-    opacity: 0.6;
-    background-color: white;
+    width: 3px;
+    background-color: rgba(16, 184, 206, 0.548);
+}
+
+.snowflake {
+    z-index: -1;
+    position: absolute;
+    top: -5px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.781);
 }
 
 .UFO {

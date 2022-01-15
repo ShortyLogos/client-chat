@@ -1,7 +1,7 @@
 import { registerCallbacks, sendMessage, signout, chatMessageLoop } from './chat-api';
 import Vue from 'vue';
 import Chat from './Chat.vue';
-import { generateRain, generateStars, refreshSpriteList, ToggleButton } from './utils';
+import { generateRain, generateSnow, generateStars, refreshSpriteList, ToggleButton } from './utils';
 
 let msgList = [];
 let msgId = 0;
@@ -11,7 +11,9 @@ let membersList;
 let spriteList = [];
 
 let btnStarryNight;
+let btnGentleRain;
 let starryNight = false;
+let gentleRain = false;
 
 window.addEventListener("load", () => {
     document.querySelector("textarea").onkeyup = function (evt) {
@@ -40,6 +42,7 @@ window.addEventListener("load", () => {
     })
 
     btnStarryNight = new ToggleButton("#starry-night");
+    btnGentleRain = new ToggleButton("#gentle-rain");
 
     tick();
 })
@@ -80,11 +83,24 @@ const memberListUpdate = members => {
 const tick = () => {
     starryNight = btnStarryNight.toggle;
     if (starryNight) {
-        generateStars(spriteList, 0.4, 500);
+        generateStars(spriteList, 0.3, 500);
     }
 
-    generateRain(spriteList, 0.8, 2, 0, 0);
-    generateRain(spriteList, 0.8, 2, 0, 0);
+    gentleRain = btnGentleRain.toggle;
+    if (gentleRain) {
+        generateRain(spriteList, 0.8, 24, 0, 180, 0);
+        generateRain(spriteList, 0.6, 22, 0, 180, 0);
+        generateRain(spriteList, 0.8, 20, 0, 180, 0);
+        generateRain(spriteList, 0.8, 20, 0, 180, 0);
+        generateRain(spriteList, 0.5, 18, 0, 180, 0);
+        generateRain(spriteList, 0.4, 14, 0, 180, 0);
+    }
+
+    generateSnow(spriteList, 0.15, 2.5, 180, 1.25);
+    generateSnow(spriteList, 0.4, 1.5, 180, 1.5);
+    generateSnow(spriteList, 0.3, 3, 180, 0.5);
+    generateSnow(spriteList, 0.25, 1.2, 180, 1);
+    
 
     refreshSpriteList(spriteList);
 

@@ -1,21 +1,18 @@
-export default class Raindrop {
+export default class Snowflake {
 
-    constructor(speed, angle, maximumHeight, windForce = null) {
+    constructor(speed, maximumHeight, windForce = null) {
         this.node = document.createElement("div");
-        this.node.classList.add("raindrop");
+        this.node.classList.add("snowflake");
 
         this.speed = speed;
         this.windForce = windForce;
         this.maximumHeight = (window.innerHeight - maximumHeight);
 
-        if (angle > 0) {
-            this.node.style.transform = "rotate(" + angle + "deg)";
-        }
-
-        this.x = Math.random() * (window.innerWidth * 1.25);
+        this.x = Math.random() * (window.innerWidth * (1 + windForce));
         this.y = this.node.offsetTop;
 
-        this.size = Math.floor(Math.random() * 15 + 3);
+        this.size = Math.floor(Math.random() * 3 + 2);
+        this.node.style.width = this.size + "px";
         this.node.style.height = this.size + "px";
 
         let opacity = 1 - Math.random();
@@ -34,6 +31,10 @@ export default class Raindrop {
 
         if (this.y > this.maximumHeight) {
             this.y = this.maximumHeight;
+            alive = false;
+            this.node.remove();
+        }
+        else if (this.x == -5) {
             alive = false;
             this.node.remove();
         }
