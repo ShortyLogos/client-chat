@@ -91,6 +91,9 @@ const tick = () => {
 
     gentleRain = btnGentleRain.toggle;
     if (gentleRain) {
+        if (soothingSnow) {
+            soothingSnow = btnSoothingSnow.toggleNow();
+        }
         generateRain(spriteList, 0.8, 24, 0, 180, 0);
         generateRain(spriteList, 0.6, 22, 0, 180, 0);
         generateRain(spriteList, 0.8, 20, 0, 180, 0);
@@ -101,6 +104,9 @@ const tick = () => {
 
     soothingSnow = btnSoothingSnow.toggle;
     if (soothingSnow) {
+        if (gentleRain) {
+            gentleRain = btnGentleRain.toggleNow();
+        }
         generateSnow(spriteList, 0.15, 2.5, 180, 1.25);
         generateSnow(spriteList, 0.4, 1.5, 180, 1.5);
         generateSnow(spriteList, 0.3, 3, 180, 0.5);

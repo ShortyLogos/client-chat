@@ -36,17 +36,19 @@ export class ToggleButton {
         this.toggle = false;
         this.button = document.querySelector(node);
 
-        this.button.onclick = () => {
-            this.toggle = !this.toggle;
+        this.button.onclick = () => this.toggleNow();
+    }
 
-            if (this.button.classList.contains("btn-toggle-up")) {
-            this.button.classList.replace("btn-toggle-up", "btn-toggle-down");
-            }
-            else {
-                this.button.classList.replace("btn-toggle-down", "btn-toggle-up");
-            }
+    toggleNow() {
+        this.toggle = !this.toggle;
 
-            console.log(this.button.toggle);
+        if (this.button.classList.contains("btn-toggle-up")) {
+        this.button.classList.replace("btn-toggle-up", "btn-toggle-down");
         }
+        else {
+            this.button.classList.replace("btn-toggle-down", "btn-toggle-up");
+        }
+
+        return this.toggle;
     }
 }
