@@ -1,5 +1,5 @@
 export default class Star {
-    // 240
+
     constructor(maximumHeight, parallax = null, parallaxSpeed = null) {
         this.node = document.createElement("div");
         this.node.classList.add("star");

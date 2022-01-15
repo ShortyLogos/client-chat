@@ -125,6 +125,16 @@ footer {
     animation: twinkle 0.8s 1 ease-in-out forwards;
 }
 
+.raindrop {
+    z-index: -1;
+    position: absolute;
+    top: -5px;
+    width: 2px;
+    height: 10px;
+    opacity: 0.6;
+    background-color: white;
+}
+
 .UFO {
     z-index: 1;
     position: absolute;

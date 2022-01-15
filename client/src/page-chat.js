@@ -1,7 +1,7 @@
 import { registerCallbacks, sendMessage, signout, chatMessageLoop } from './chat-api';
 import Vue from 'vue';
 import Chat from './Chat.vue';
-import { generateStars, refreshSpriteList, ToggleButton } from './utils';
+import { generateRain, generateStars, refreshSpriteList, ToggleButton } from './utils';
 
 let msgList = [];
 let msgId = 0;
@@ -39,25 +39,7 @@ window.addEventListener("load", () => {
         }
     })
 
-    //     document.querySelectorAll(".btn-toggle-up").forEach( element => {
-    //     element.onclick = () => {
-    //         if (element.classList.contains("btn-toggle-up")) {
-    //             element.classList.replace("btn-toggle-up", "btn-toggle-down");
-    //         }
-    //         else {
-    //             element.classList.replace("btn-toggle-down", "btn-toggle-up");
-    //         }
-    //     }
-    // })
-
     btnStarryNight = new ToggleButton("#starry-night");
-    console.log(btnStarryNight.toggle);
-    // let btnStarryNight = document.querySelector("#starry-night");
-    // btnStarryNight.onclick = () => {
-    //     starryNight = !starryNight;
-    //     btnStarryNight.toggleBtn();
-    //     console.log(starryNight);
-    // }
 
     tick();
 })
@@ -72,8 +54,6 @@ const newMessage = (fromUser, message, isPrivate) => {
 // connectés dans votre interface.
 const memberListUpdate = members => {
     membersOnline = members;
-
-    // membersOnline.splice(0, membersOnline.length);
 
     let refreshMembers = document.querySelectorAll(".online-member")
     refreshMembers.forEach(node => {
@@ -103,8 +83,12 @@ const tick = () => {
         generateStars(spriteList, 0.4, 500);
     }
 
+    generateRain(spriteList, 0.8, 2, 0, 0);
+    generateRain(spriteList, 0.8, 2, 0, 0);
+
     refreshSpriteList(spriteList);
 
+    console.log(spriteList.length);
 
     window.requestAnimationFrame(tick);
 }

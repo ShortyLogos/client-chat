@@ -1,4 +1,5 @@
 import Star from "./sprites/Star.js";
+import Raindrop from "./sprites/Raindrop.js";
 
 export const refreshSpriteList = list => {
     for (let i = 0; i < list.length; i++) {
@@ -13,6 +14,12 @@ export const refreshSpriteList = list => {
 export const generateStars = (spriteList, frequency, maximumHeight, parallax = null, parallaxSpeed = null) => {
     if (Math.random() < frequency) {
         spriteList.push(new Star(maximumHeight, parallax, parallaxSpeed));
+    }
+}
+
+export const generateRain = (spriteList, frequency, speed, angle, maximumHeight) => {
+    if (Math.random() < frequency) {
+        spriteList.push(new Raindrop(speed, angle, maximumHeight));
     }
 }
 
