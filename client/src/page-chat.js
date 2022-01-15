@@ -12,8 +12,10 @@ let spriteList = [];
 
 let btnStarryNight;
 let btnGentleRain;
+let btnSoothingSnow;
 let starryNight = false;
 let gentleRain = false;
+let soothingSnow = false;
 
 window.addEventListener("load", () => {
     document.querySelector("textarea").onkeyup = function (evt) {
@@ -43,6 +45,7 @@ window.addEventListener("load", () => {
 
     btnStarryNight = new ToggleButton("#starry-night");
     btnGentleRain = new ToggleButton("#gentle-rain");
+    btnSoothingSnow = new ToggleButton("#soothing-snow");
 
     tick();
 })
@@ -96,11 +99,13 @@ const tick = () => {
         generateRain(spriteList, 0.4, 14, 0, 180, 0);
     }
 
-    generateSnow(spriteList, 0.15, 2.5, 180, 1.25);
-    generateSnow(spriteList, 0.4, 1.5, 180, 1.5);
-    generateSnow(spriteList, 0.3, 3, 180, 0.5);
-    generateSnow(spriteList, 0.25, 1.2, 180, 1);
-    
+    soothingSnow = btnSoothingSnow.toggle;
+    if (soothingSnow) {
+        generateSnow(spriteList, 0.15, 2.5, 180, 1.25);
+        generateSnow(spriteList, 0.4, 1.5, 180, 1.5);
+        generateSnow(spriteList, 0.3, 3, 180, 0.5);
+        generateSnow(spriteList, 0.25, 1.2, 180, 1);
+    }
 
     refreshSpriteList(spriteList);
 
