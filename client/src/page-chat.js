@@ -3,6 +3,7 @@ import Vue from 'vue';
 import Chat from './Chat.vue';
 import { generateRain, generateSnow, generateStars, refreshSpriteList, ToggleButton } from './utils';
 import Snowflake from './sprites/Snowflake';
+import Fridge from './sprites/Fridge';
 
 let msgList = [];
 let msgId = 0;
@@ -47,6 +48,11 @@ window.addEventListener("load", () => {
     btnStarryNight = new ToggleButton("#starry-night");
     btnGentleRain = new ToggleButton("#gentle-rain");
     btnSoothingSnow = new ToggleButton("#soothing-snow");
+    
+    document.querySelector("#feed-me").onclick = () => {
+        console.log("je réagis");
+        spriteList.push(new Fridge());
+    }
 
     tick();
 })

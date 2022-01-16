@@ -1,4 +1,4 @@
-import {mouseX, mouseY, spirteList, spriteList} from '../page-index.js'
+import {mouseX, mouseY, spriteList} from '../page-index.js'
 import MovingParticle from './MovingParticle.js';
 
 export default class UFO {
@@ -66,8 +66,6 @@ export default class UFO {
 
 		this.node.style.left = this.x + "px";
 		this.node.style.top = this.y + "px";
-
-        
 
         this.username = document.querySelector("#username").value;
         this.textAppended.innerText = this.username;
