@@ -1,6 +1,6 @@
 export default class PopUpBox {
     
-    constructor(parentNode, content, speedY, velocity, timeToFadeOut, minimumWidth = null) {
+    constructor(parentNode, content, speedY, velocity, timeToFadeOut = null, minimumWidth = null) {
         this.popping = true;
         this.fadeOut = false;
         this.element = document.createElement("div");
@@ -37,16 +37,12 @@ export default class PopUpBox {
 
             if (this.width > 180) {
             this.popping = false;
-            this.element.classList.add("pop-up-box-complete");
             this.element.innerText = this.content;
 
                 if (this.minimumWidth != null) { 
                     this.element.style.minWidth = this.minimumWidth + "px";
                 }
             }
-        }
-        else {
-            
         }
 
         this.speedY += this.velocity;

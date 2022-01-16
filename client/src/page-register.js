@@ -1,14 +1,11 @@
 import {register} from './chat-api';
 import PopUpBox from './sprites/PopUpBox';
-import Bird from './sprites/Bird';
 import { generateBirds, generateStars, refreshSpriteList } from './utils';
 
 let body;
 let bodyBgImagePosX = 100;
 
 let spriteList = [];
-
-let birdTest;
 
 window.addEventListener("load", () => {
     document.querySelector("form").onsubmit = function () {

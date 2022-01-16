@@ -156,10 +156,6 @@ footer {
   border-radius: 4px;
 }
 
-.pop-up-box-complete {
-  min-width: fit-content;
-}
-
 /******************* SPRITES *********************/
 .star {
   z-index: -2;
