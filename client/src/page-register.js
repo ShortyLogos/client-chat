@@ -54,7 +54,7 @@ window.addEventListener("load", () => {
 
     gift.onclick = () => {
         if (!giftOpened) {
-            let sound = new Audio('./sounds/welcome-cookie.wav');
+            let sound = new Audio('./sounds/cookie.wav');
             sound.play();
 
             let text = "Here's your welcome cookie! Enjoy.";
