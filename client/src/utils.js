@@ -1,6 +1,7 @@
 import Star from "./sprites/Star.js";
 import Raindrop from "./sprites/Raindrop.js";
 import Snowflake from "./sprites/Snowflake.js";
+import Bird from "./sprites/Bird.js";
 
 export const refreshSpriteList = list => {
     for (let i = 0; i < list.length; i++) {
@@ -27,6 +28,12 @@ export const generateRain = (spriteList, frequency, speed, angle, maximumHeight,
 export const generateSnow = (spriteList, frequency, speed, maximumHeight, windForce = null) => {
     if (Math.random() < frequency) {
         spriteList.push(new Snowflake(speed, maximumHeight, windForce));
+    }
+}
+
+export const generateBirds = (spriteList, frequency, x, y, speedX) => {
+    if (Math.random() < frequency) {
+        spriteList.push(new Bird(x, y, speedX));
     }
 }
 

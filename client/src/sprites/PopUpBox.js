@@ -1,4 +1,4 @@
-export class PopUpBox {
+export default class PopUpBox {
     
     constructor(parentNode, content, speedY, velocity, minimumWidth = null) {
         this.popping = true;
@@ -60,7 +60,7 @@ export class PopUpBox {
         this.element.style.top = this.posY + "px";
 
         if (this.fadeOut) {
-            this.opacity -= 0.01;
+            this.opacity -= 0.02;
             this.element.style.opacity = this.opacity;
             if (this.opacity <= 0) {
                 this.element.remove();

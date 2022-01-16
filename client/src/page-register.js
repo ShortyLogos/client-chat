@@ -1,11 +1,14 @@
 import {register} from './chat-api';
-import { PopUpBox } from './sprites/PopUpBox';
-import { refreshSpriteList } from './utils';
+import PopUpBox from './sprites/PopUpBox';
+import Bird from './sprites/Bird';
+import { generateBirds, refreshSpriteList } from './utils';
 
 let body;
 let bodyBgImagePosX = 100;
 
 let spriteList = [];
+
+let birdTest;
 
 window.addEventListener("load", () => {
     document.querySelector("form").onsubmit = function () {
@@ -55,7 +58,7 @@ window.addEventListener("load", () => {
             sound.play();
 
             let text = "Here's your welcome cookie! Enjoy.";
-            spriteList.push(new PopUpBox(gift, text, 15, 0.8, 258))
+            spriteList.push(new PopUpBox(gift, text, 12, 0.8, 258))
 
             gift.style.backgroundImage = "url(./img/sprites/gift2.png)";
             giftOpened = true;
@@ -68,6 +71,8 @@ window.addEventListener("load", () => {
 const tick = () => {
     bodyBgImagePosX -= 1.5;
     body.style.backgroundPosition = bodyBgImagePosX + "px " + "100%";
+
+    generateBirds(spriteList, 0.01, -50, Math.random() * (window.innerHeight - 80) - 30, Math.floor(Math.random() * 2 + 2));
 
     refreshSpriteList(spriteList);
 

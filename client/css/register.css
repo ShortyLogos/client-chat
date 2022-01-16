@@ -53,8 +53,8 @@
   position: relative;
   top: 8px;
   width: 425px;
-  height: 320px;
-  margin: 0 5px 0 10px;
+  height: 340px;
+  margin: 0 -5px 0 5px;
   background-size: cover;
   align-self: center;
   background-position: 10%;
@@ -66,13 +66,13 @@
 
 #gift {
   position: absolute;
-  top: 261px;
-  left: 122px;
+  top: 160px;
+  left: 210px;
   width: 36px;
   height: 36px;
   background-image: url("../img/sprites/gift1.png");
   background-size: cover;
-  filter: brightness(0.85);
+  filter: brightness(0.8);
   cursor: pointer;
 }
 
