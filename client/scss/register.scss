@@ -5,7 +5,7 @@
     @include box-content;
     
     a {
-        margin-top: 8px;
+        margin-top: 10px;
     }
 }
 
@@ -29,16 +29,38 @@
 }
 
 #sleeping-boy {
-    width: 528px;
-    height: 380px;
-    margin-left: 5px;
+    position: relative;
+    top: 8px;
+    width: 425px;
+    height: 320px;
+    margin: 0 5px 0 10px;
     background-size: cover;
     align-self: center;
+    background-position: (10%);
     background-image: url('../img/background/ness_sleeps2.jpg');
-    border-radius: 6px;
+    border-radius: 20px;
+    box-shadow: inset 0px 0px 10px 3px rgba(0, 0, 0, 0.76);
+    filter: drop-shadow(0px 0px 3px var(--color-main)) brightness(1.1);
+}
+
+#gift {
+    position: absolute;
+    top: 261px;
+    left: 122px;
+    width: 36px;
+    height: 36px;
+    background-image: url('../img/sprites/gift1.png');
+    background-size: cover;
+    filter: brightness(0.85);
+    cursor: pointer;
 }
 
 /************* MEDIA QUERIES *************/
+@media (max-width: 764px) {
+    #sleeping-boy {
+        display: none;
+    }
+}
 
 @media (max-height: 650px) {
     .register-box-content {
@@ -66,5 +88,9 @@
 @media (max-height: 550px) {
     .register-title {
         font-size: 18px;
+    }
+
+    #sleeping-boy {
+        display: none;
     }
 }

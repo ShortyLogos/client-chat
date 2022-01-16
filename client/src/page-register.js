@@ -1,7 +1,11 @@
 import {register} from './chat-api';
+import { PopUpBox } from './sprites/PopUpBox';
+import { refreshSpriteList } from './utils';
 
 let body;
 let bodyBgImagePosX = 100;
+
+let spriteList = [];
 
 window.addEventListener("load", () => {
     document.querySelector("form").onsubmit = function () {
@@ -10,7 +14,6 @@ window.addEventListener("load", () => {
     
     body = document.querySelector("body");
 
-    body.style.backgroundColor = "#42121f";
     body.style.backgroundImage = "url(./img/background/background-sunset-sky.png)";
     body.style.backgroundRepeat = "repeat-x";
 
@@ -42,6 +45,22 @@ window.addEventListener("load", () => {
         }, 400)
     }
     boySleeping();
+    
+    let gift = document.querySelector("#gift");
+    let giftOpened = false;
+
+    gift.onclick = () => {
+        if (!giftOpened) {
+            let sound = new Audio('./sounds/welcome-cookie.wav');
+            sound.play();
+
+            let text = "Here's your welcome cookie! Enjoy.";
+            spriteList.push(new PopUpBox(gift, text, 15, 0.8, 258))
+
+            gift.style.backgroundImage = "url(./img/sprites/gift2.png)";
+            giftOpened = true;
+        }
+    }
 
     tick();
 })
@@ -50,17 +69,7 @@ const tick = () => {
     bodyBgImagePosX -= 1.5;
     body.style.backgroundPosition = bodyBgImagePosX + "px " + "100%";
 
-    // if (Math.random() < 0.2) {
-    //     spriteList.push(new Star());
-    // }
-
-    // for (let i = 0; i < spriteList.length; i++) {
-    //     let alive = spriteList[i].tick();
-    //     if (!alive) {
-    //         spriteList.splice(i, 1);
-    //         i--;
-    //     }
-    // }
+    refreshSpriteList(spriteList);
 
     window.requestAnimationFrame(tick);
 }

@@ -116,6 +116,19 @@ footer {
     }
 }
 
+.pop-up-box {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 14px;
+    text-align: left;
+    @include dialog-box;
+}
+
+.pop-up-box-complete {
+    min-width: fit-content;
+}
+
 /******************* SPRITES *********************/
 .star {
     z-index: -2;
