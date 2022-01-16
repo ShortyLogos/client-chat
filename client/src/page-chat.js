@@ -50,8 +50,7 @@ window.addEventListener("load", () => {
     btnSoothingSnow = new ToggleButton("#soothing-snow");
     
     document.querySelector("#feed-me").onclick = () => {
-        console.log("je réagis");
-        spriteList.push(new Fridge());
+        spriteList.push(new Fridge(document.querySelector(".text-input-area")));
     }
 
     tick();

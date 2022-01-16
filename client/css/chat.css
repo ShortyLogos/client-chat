@@ -172,6 +172,7 @@ textarea {
 }
 
 .text-input-area {
+  position: relative;
   height: 25vh;
   align-items: center;
   justify-content: center;

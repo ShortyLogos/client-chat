@@ -1,32 +1,30 @@
 export default class Fridge  {
 
-    constructor() {
+    constructor(parentNode) {
         this.node = document.createElement("div");
         this.node.classList.add("fridge");
-
-        this.x = Math.random() * window.innerWidth - 32;
-        if (this.x <= 0) { 
-            this.x = 64;
+        this.parentNode = parentNode;
+   
+        if (window.innerWidth> 1200) {
+            this.x = -100 + Math.floor(Math.random() * 275);
         }
+        else {
+            this.x = -25 + Math.floor(Math.random() * 125);
+        }
+        this.y = -window.innerHeight;
 
-        this.y = -50;
-
-        this.landingY = window.innerHeight - Math.random() * 120 -  60;
-    
-        this.node.style.left = this.x + "px";
+        this.node.style.left = this.x + "%";
         this.node.style.top = this.y + "px";
         
-        document.body.append(this.node);
-        console.log(this.landingY);
-
+        parentNode.append(this.node);
     }
 
     tick() {
-        
 
-        if (this.y < this.landingY) {
-            this.y += 5;
+        if (this.y < 100) {
+            this.y += 20;
         }
+        else 
 
         this.node.style.top = this.y + "px";
 

@@ -48,6 +48,21 @@ window.addEventListener("load", () => {
             bouncingTitle();
         }, 270)
     }
+
+    let btnGithub = document.querySelector("#github");
+    btnGithub.onclick = () => {
+        window.location.href = "http://github.com/ShortyLogos";
+    }
+
+    let btnTwitter = document.querySelector("#twitter");
+    btnTwitter.onclick = () => {
+        window.location.href = "http://twitter.com/ShortyLogos";
+    }
+
+    let btnMail = document.querySelector("#contact");
+    btnMail.onclick = () => {
+        window.location.href = "mailto:dericmarchand@gmail.com";
+    }
    
     spriteList.push(new UFO());
 

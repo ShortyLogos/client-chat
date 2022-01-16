@@ -1,6 +1,6 @@
 export default class PopUpBox {
     
-    constructor(parentNode, content, speedY, velocity, minimumWidth = null) {
+    constructor(parentNode, content, speedY, velocity, timeToFadeOut, minimumWidth = null) {
         this.popping = true;
         this.fadeOut = false;
         this.element = document.createElement("div");
@@ -20,7 +20,7 @@ export default class PopUpBox {
 
         setTimeout(() => {
             this.fadeOut = true;
-        }, speedY * 200 + 1000);
+        }, speedY * 200 + timeToFadeOut);
 
         parentNode.append(this.element);
     }

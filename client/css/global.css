@@ -186,10 +186,10 @@ footer {
 
 .fridge {
   position: absolute;
-  width: 48px;
-  height: 75px;
+  width: 128px;
+  height: 96px;
   background-image: url("../img/sprites/fridge0.png");
-  background-size: 150%;
+  background-size: 100%;
   background-position: center center;
   cursor: pointer;
 }
