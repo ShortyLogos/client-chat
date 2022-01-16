@@ -260,6 +260,11 @@ footer {
     font-size: 16px;
   }
 }
+@media (max-height: 700px) {
+  .fridge {
+    display: none;
+  }
+}
 /************* ANIMATIONS **************/
 @keyframes uplift-footer-item {
   0% {

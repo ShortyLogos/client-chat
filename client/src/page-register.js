@@ -1,6 +1,6 @@
 import {register} from './chat-api';
 import PopUpBox from './sprites/PopUpBox';
-import { generateBirds, generateStars, refreshSpriteList } from './utils';
+import { changeTheme, generateBirds, generateStars, refreshSpriteList } from './utils';
 
 let body;
 let bodyBgImagePosX = 100;
@@ -17,20 +17,7 @@ window.addEventListener("load", () => {
     body.style.backgroundImage = "url(./img/background/background-sunset-sky.png)";
     body.style.backgroundRepeat = "repeat-x";
 
-    let root = document.querySelector(":root");
-    let rootStyle = getComputedStyle(root);
-
-    let mainColor = rootStyle.getPropertyValue('--color-main');
-    let secondaryColor = rootStyle.getPropertyValue('--color-secondary');
-    let paleColor = rootStyle.getPropertyValue('--color-pale');
-    let darkColor = rootStyle.getPropertyValue('--color-dark');
-    let accentColor = rootStyle.getPropertyValue('--color-accent');
-    
-    root.style.setProperty('--color-main', '#a4443d');
-    root.style.setProperty('--color-secondary', '#862f28');
-    root.style.setProperty('--color-pale', '#985f5c');
-    root.style.setProperty('--color-dark', '#42121f');
-    root.style.setProperty('--color-accent', '#F7800C');
+    changeTheme('#a4443d', '#862f28', '#985f5c', '#42121f', '#F7800C');
 
     let sleepingBoy = document.querySelector("#sleeping-boy");
     let backgroundFrame = 1;

@@ -1,3 +1,4 @@
+import { moneyIncrease, mysteriousKeysIncrease, randomThingsIncrease } from "../page-chat";
 import PopUpBox from "./PopUpBox";
 
 export default class Fridge  {
@@ -122,7 +123,7 @@ export default class Fridge  {
             " an ice-cream sandwich.",
             " a resolve to pursue your dreams.",
             " 1$. Lucky you!",
-            " a rumor about you. Is it true?.",
+            " a rumor about you. Is it true?",
             " a rotten egg. Huh?",
             " a delicious pudding.",
             " a future laugh for grim days.",
@@ -137,7 +138,7 @@ export default class Fridge  {
             " a stinking fart.",
             " a baseball bat.",
             " a heartwarming greeting card.",
-            " a new song from your favorite band.",
+            " a scene from your favorite movie.",
             " a coffee-stained newspaper.",
             " a miniature robot.",
             " a butterfly.",
@@ -145,11 +146,21 @@ export default class Fridge  {
             " orange juice.",
             " the most recent password for a private club.",
             " John. Hello John.",
-            " a way to communicate with turtles.",
-            " an interdimensional portal to a tiny planet."
+            " a way to communicate with cats.",
+            " an interdimensional portal to a tiny planet.",
+            " a grandmother's recipe. Yummy!"
         ]
 
         let roll = Math.floor(Math.random() * lootTable.length);
+        if (roll == 2) {
+            moneyIncrease();
+        }
+        else if (roll == 10) {
+            mysteriousKeysIncrease();
+        }
+        else {
+            randomThingsIncrease();
+        }
 
         return lootTable[roll];
     }

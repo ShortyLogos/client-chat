@@ -12,12 +12,17 @@ let membersList;
 
 let spriteList = [];
 
+let themeSelected = 0;
 let btnStarryNight;
 let btnGentleRain;
 let btnSoothingSnow;
 let starryNight = false;
 let gentleRain = false;
 let soothingSnow = false;
+
+let money = 0;
+let mysteriousKeys = 0;
+let randomThings = 0;
 
 window.addEventListener("load", () => {
     document.querySelector("textarea").onkeyup = function (evt) {
@@ -51,6 +56,16 @@ window.addEventListener("load", () => {
     
     document.querySelector("#feed-me").onclick = () => {
         spriteList.push(new Fridge(document.querySelector(".text-input-area")));
+    }
+
+    document.querySelector("#brag-a-little").onclick = () => {
+        let textArea = document.querySelector(".text-input");
+        textArea.focus();
+        textArea.value = 
+            "I've found " + money + "$, " 
+            + mysteriousKeys + " mysterious key(s) and exactly "
+            + randomThings + " random thing(s) from falling refrigerators. But most important to me are the "
+            + (membersOnline.length - 1) + " friends I got here.";
     }
 
     tick();
@@ -130,4 +145,16 @@ const tick = () => {
     refreshSpriteList(spriteList);
 
     window.requestAnimationFrame(tick);
+}
+
+export const moneyIncrease = () => {
+    money++;
+}
+
+export const mysteriousKeysIncrease = () => {
+    mysteriousKeys++;
+}
+
+export const randomThingsIncrease = () => {
+    randomThings++;
 }
