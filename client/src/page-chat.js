@@ -1,9 +1,10 @@
 import { registerCallbacks, sendMessage, signout, chatMessageLoop } from './chat-api';
 import Vue from 'vue';
 import Chat from './Chat.vue';
-import { generateRain, generateSnow, generateStars, refreshSpriteList, ToggleButton } from './utils';
+import { changeTheme, generateRain, generateSnow, generateStars, refreshSpriteList, ToggleButton } from './utils';
 import Snowflake from './sprites/Snowflake';
 import Fridge from './sprites/Fridge';
+import { ThemeName } from './sprites/ThemeName';
 
 let msgList = [];
 let msgId = 0;
@@ -13,6 +14,8 @@ let membersList;
 let spriteList = [];
 
 let themeSelected = 0;
+
+let btnChangeOutfit;
 let btnStarryNight;
 let btnGentleRain;
 let btnSoothingSnow;
@@ -33,12 +36,6 @@ window.addEventListener("load", () => {
     registerCallbacks(newMessage, memberListUpdate);
     chatMessageLoop();
 
-    let body = document.querySelector("body");
-
-    body.style.backgroundImage = "url(./img/background/background-tile-room.png)";
-    body.style.backgroundPosition = "bottom center";
-    body.style.backgroundRepeat = "repeat-x";
-
     membersList = document.querySelector("#members-online");
 
     new Vue({
@@ -50,9 +47,13 @@ window.addEventListener("load", () => {
         }
     })
 
+    btnChangeOutfit = document.querySelector("#change-outfit");
+    btnChangeOutfit.onclick = () => changeOutfit();
+
     btnStarryNight = new ToggleButton("#starry-night");
     btnGentleRain = new ToggleButton("#gentle-rain");
     btnSoothingSnow = new ToggleButton("#soothing-snow");
+
     
     document.querySelector("#feed-me").onclick = () => {
         spriteList.push(new Fridge(document.querySelector(".text-input-area")));
@@ -67,7 +68,6 @@ window.addEventListener("load", () => {
             + randomThings + " random thing(s) from falling refrigerators. But most important to me are the "
             + (membersOnline.length - 1) + " friends I got here.";
     }
-
     tick();
 })
 
@@ -145,6 +145,31 @@ const tick = () => {
     refreshSpriteList(spriteList);
 
     window.requestAnimationFrame(tick);
+}
+
+const changeOutfit = () => {
+    themeSelected++;
+    if (themeSelected > 3) { themeSelected = 0; }
+    console.log(themeSelected);
+
+    switch(themeSelected) {
+        case 0:
+            spriteList.push(new ThemeName(btnChangeOutfit, "Pyjama Party"));
+            changeTheme('#9674bc', '#6b33a9', '#b08ad8', '#1e1753', '#cf9c5a');
+            break;
+        case 1:
+            spriteList.push(new ThemeName(btnChangeOutfit, "Chocolate Factory"));
+            changeTheme('#a4443d', '#862f28', '#985f5c', '#42121f', '#F7800C');
+            break;
+        case 2:
+            spriteList.push(new ThemeName(btnChangeOutfit, "Mother's Smile"));
+            changeTheme('#4d9fcf', '#276d6b', '#74a5c0', '#0d4445', '#D0B45A');
+            break;
+        case 3:
+            spriteList.push(new ThemeName(btnChangeOutfit, "Jazz Night"));
+            changeTheme('#cfc54d', '#a9a033', '#d2c964', '#533917', '#388576');
+            break;
+    }
 }
 
 export const moneyIncrease = () => {

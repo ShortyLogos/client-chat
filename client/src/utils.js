@@ -39,7 +39,6 @@ export const generateBirds = (spriteList, frequency, x, y, speedX) => {
 
 export const changeTheme = (mainColor, secondaryColor, paleColor, darkColor, accentColor) => {
     let root = document.querySelector(":root");
-    let rootStyle = getComputedStyle(root);
     
     root.style.setProperty('--color-main', mainColor);
     root.style.setProperty('--color-secondary', secondaryColor);
