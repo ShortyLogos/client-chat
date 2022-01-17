@@ -7,7 +7,7 @@ module.exports = {
     chat : './client/src/page-chat.js',
     register : './client/src/page-register.js'
   },
-  mode: 'development',
+  mode: 'production',
   module: {
     rules: [
       // ... other rules

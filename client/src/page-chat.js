@@ -24,7 +24,6 @@ let gentleRain = false;
 let soothingSnow = false;
 
 let money = 0;
-let mysteriousKeys = 0;
 let randomThings = 0;
 
 window.addEventListener("load", () => {
@@ -63,8 +62,7 @@ window.addEventListener("load", () => {
         let textArea = document.querySelector(".text-input");
         textArea.focus();
         textArea.value = 
-            "I've found " + money + "$, " 
-            + mysteriousKeys + " mysterious key(s) and exactly "
+            "I've found " + money + "$ and exactly "
             + randomThings + " random thing(s) from falling refrigerators. But most important to me are the "
             + (membersOnline.length - 1) + " friends I got here.";
     }
@@ -172,12 +170,8 @@ const changeOutfit = () => {
     }
 }
 
-export const moneyIncrease = () => {
-    money++;
-}
-
-export const mysteriousKeysIncrease = () => {
-    mysteriousKeys++;
+export const moneyIncrease = (amount) => {
+    money += amount;
 }
 
 export const randomThingsIncrease = () => {

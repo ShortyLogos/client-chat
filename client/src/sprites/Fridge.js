@@ -10,7 +10,6 @@ export default class Fridge  {
         this.landed = false;
         this.dustStarted = false;
         this.opacity = 1;
-        this.loot = this.randomLoot();
    
         if (window.innerWidth> 1200) {
             this.x = -100 + Math.floor(Math.random() * 275);
@@ -102,8 +101,7 @@ export default class Fridge  {
                 this.node.style.backgroundImage = "url(./img/sprites/fridge-open3.png)";
                 this.opened = true;
 
-                let sound = new Audio('./sounds/loot.wav');
-                sound.play();
+                this.loot = this.randomLoot();
 
                 let text = "You found " + this.loot;
                 this.popUpBox = new PopUpBox(this.node, text, 8, 2, 500, 270);
@@ -120,11 +118,15 @@ export default class Fridge  {
 
     randomLoot() {
         let lootTable = [
+            " 1$. Don't spend it all.",
+            " 2$. Lucky you!",
+            " 5$. Very, very nice.",
+            " 10$. One step forward being a millionaire!",
+            " a rotten egg. Huh?",
+            " a stinking fart.",
             " an ice-cream sandwich.",
             " a resolve to pursue your dreams.",
-            " 1$. Lucky you!",
             " a rumor about you. Is it true?",
-            " a rotten egg. Huh?",
             " a delicious pudding.",
             " a future laugh for grim days.",
             " the laugh of your best friend.",
@@ -132,37 +134,63 @@ export default class Fridge  {
             " a chocolate bar big enough to share it.",
             " a mysterious key.",
             " a laser gun.",
-            " a bag of marbles.",
+            " a bag of fascinating marbles.",
             " a good feeling about tomorrow.",
             " a bird feather of your favorite color.",
-            " a stinking fart.",
             " a baseball bat.",
+            " a yo-yo.",
             " a heartwarming greeting card.",
             " a scene from your favorite movie.",
             " a coffee-stained newspaper.",
             " a miniature robot.",
             " a butterfly.",
-            " a friendly but elusive spider.",
+            " a friendly but elusive insect.",
             " orange juice.",
             " the most recent password for a private club.",
             " John. Hello John.",
-            " a way to communicate with cats.",
-            " an interdimensional portal to a tiny planet.",
-            " a grandmother's recipe. Yummy!"
+            " a dinosaur-shaped pebble.",
+            " a very long bridge to a tiny planet.",
+            " a grandmother's recipe. Yummy!",
+            " a way to enjoy mondays.",
+            " a new outlook on life.",
+            " some leftover lasagna.",
+            " a crazy idea with unlimited potential.",
+            " a cowboy hat.",
+            " a picture of an happy couple.",
+            " a strange bone."
         ]
 
         let roll = Math.floor(Math.random() * lootTable.length);
-        if (roll == 2) {
-            moneyIncrease();
+        if (roll == 0) {
+            moneyIncrease(1);
         }
-        else if (roll == 10) {
-            mysteriousKeysIncrease();
+        else if (roll == 1) {
+            moneyIncrease(2);
+        }
+        else if (roll == 2) {
+            moneyIncrease(5);
+        }
+        else if (roll == 3) {
+            moneyIncrease(10);
         }
         else {
+            let sound = new Audio('./sounds/loot.wav');
+            sound.play();
             randomThingsIncrease();
         }
 
+        if (roll <= 3) {
+            let sound = new Audio('./sounds/money.wav');
+            sound.play();
+        }
+        else if (roll == 4 || roll == 5) {
+            let sound = new Audio('./sounds/bad.wav');
+            sound.play();
+        }
+ 
         return lootTable[roll];
     }
 }
+
+
 
